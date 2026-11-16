@@ -1,0 +1,133 @@
+{
+  "years": [
+    2008,
+    2009,
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "source": "Basketball-Reference draft tables; RN Value subjective ratings by sheet author",
+  "tradeRule": "Draft-day through opening night trades credit the acquiring team as the drafting team.",
+  "ratingScale": [
+    {
+      "min": 0,
+      "label": "Non-factor / bust"
+    },
+    {
+      "min": 3,
+      "label": "Useful player",
+      "gt": true
+    },
+    {
+      "min": 4,
+      "label": "Starter",
+      "gt": true
+    },
+    {
+      "min": 6,
+      "label": "All-Star",
+      "gt": true
+    },
+    {
+      "min": 7,
+      "label": "All-NBA",
+      "gt": true
+    },
+    {
+      "min": 8,
+      "label": "Hall of Fame possible",
+      "gt": true
+    }
+  ],
+  "thresholds": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "teams": [
+    "ATL",
+    "BOS",
+    "BRK",
+    "CHI",
+    "CHO",
+    "CLE",
+    "DAL",
+    "DEN",
+    "DET",
+    "GSW",
+    "HOU",
+    "IND",
+    "LAC",
+    "LAL",
+    "MEM",
+    "MIA",
+    "MIL",
+    "MIN",
+    "NOP",
+    "NYK",
+    "OKC",
+    "ORL",
+    "PHI",
+    "PHO",
+    "POR",
+    "SAC",
+    "SAS",
+    "TOR",
+    "UTA",
+    "WAS"
+  ],
+  "teamNames": {
+    "ATL": "Atlanta Hawks",
+    "BOS": "Boston Celtics",
+    "BRK": "Brooklyn Nets",
+    "CHI": "Chicago Bulls",
+    "CHO": "Charlotte Hornets",
+    "CLE": "Cleveland Cavaliers",
+    "DAL": "Dallas Mavericks",
+    "DEN": "Denver Nuggets",
+    "DET": "Detroit Pistons",
+    "GSW": "Golden State Warriors",
+    "HOU": "Houston Rockets",
+    "IND": "Indiana Pacers",
+    "LAC": "LA Clippers",
+    "LAL": "Los Angeles Lakers",
+    "MEM": "Memphis Grizzlies",
+    "MIA": "Miami Heat",
+    "MIL": "Milwaukee Bucks",
+    "MIN": "Minnesota Timberwolves",
+    "NOP": "New Orleans Pelicans",
+    "NYK": "New York Knicks",
+    "OKC": "Oklahoma City Thunder",
+    "ORL": "Orlando Magic",
+    "PHI": "Philadelphia 76ers",
+    "PHO": "Phoenix Suns",
+    "POR": "Portland Trail Blazers",
+    "SAC": "Sacramento Kings",
+    "SAS": "San Antonio Spurs",
+    "TOR": "Toronto Raptors",
+    "UTA": "Utah Jazz",
+    "WAS": "Washington Wizards"
+  },
+  "continuityNotes": [
+    "Franchise codes follow Basketball-Reference modern abbreviations.",
+    "OKC includes the Seattle SuperSonics relocation continuity as reflected in the source sheet.",
+    "BRK covers Nets history (NJN/BRK) as coded in the sheet.",
+    "CHO covers Bobcats/Hornets as coded in the sheet.",
+    "NOP covers Hornets/Pelicans New Orleans history as coded in the sheet."
+  ]
+}
