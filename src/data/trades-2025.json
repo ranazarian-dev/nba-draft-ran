@@ -1,0 +1,157 @@
+{
+  "year": 2025,
+  "source": "NBA.com 2025 Draft Results (updated June 27, 2025); Basketball-Reference 2025-26 transactions through opening night",
+  "rule": "Draft night through opening night: credit acquiring team; tradedFrom = on-the-clock drafting team",
+  "reassignments": [
+    {
+      "pick": 10,
+      "player": "Khaman Maluach",
+      "draftedBy": "HOU",
+      "openingNightTeam": "PHO"
+    },
+    {
+      "pick": 11,
+      "player": "Cedric Coward",
+      "draftedBy": "POR",
+      "openingNightTeam": "MEM"
+    },
+    {
+      "pick": 13,
+      "player": "Derik Queen",
+      "draftedBy": "ATL",
+      "openingNightTeam": "NOP"
+    },
+    {
+      "pick": 16,
+      "player": "Yang Hansen",
+      "draftedBy": "MEM",
+      "openingNightTeam": "POR"
+    },
+    {
+      "pick": 18,
+      "player": "Walter Clayton",
+      "draftedBy": "WAS",
+      "openingNightTeam": "UTA"
+    },
+    {
+      "pick": 21,
+      "player": "Will Riley",
+      "draftedBy": "UTA",
+      "openingNightTeam": "WAS"
+    },
+    {
+      "pick": 22,
+      "player": "Drake Powell",
+      "draftedBy": "ATL",
+      "openingNightTeam": "BRK"
+    },
+    {
+      "pick": 23,
+      "player": "Asa Newell",
+      "draftedBy": "NOP",
+      "openingNightTeam": "ATL"
+    },
+    {
+      "pick": 24,
+      "player": "Nique Clifford",
+      "draftedBy": "OKC",
+      "openingNightTeam": "SAC"
+    },
+    {
+      "pick": 29,
+      "player": "Liam McNeeley",
+      "draftedBy": "PHO",
+      "openingNightTeam": "CHO"
+    },
+    {
+      "pick": 31,
+      "player": "Rasheer Fleming",
+      "draftedBy": "MIN",
+      "openingNightTeam": "PHO"
+    },
+    {
+      "pick": 32,
+      "player": "Noah Penda",
+      "draftedBy": "BOS",
+      "openingNightTeam": "ORL"
+    },
+    {
+      "pick": 36,
+      "player": "Adou Thiero",
+      "draftedBy": "BRK",
+      "openingNightTeam": "LAL"
+    },
+    {
+      "pick": 38,
+      "player": "Kam Jones",
+      "draftedBy": "SAS",
+      "openingNightTeam": "IND"
+    },
+    {
+      "pick": 40,
+      "player": "Micah Peavy",
+      "draftedBy": "WAS",
+      "openingNightTeam": "NOP"
+    },
+    {
+      "pick": 41,
+      "player": "Koby Brea",
+      "draftedBy": "GSW",
+      "openingNightTeam": "PHO"
+    },
+    {
+      "pick": 45,
+      "player": "Rocco Zikarsky",
+      "draftedBy": "CHI",
+      "openingNightTeam": "MIN"
+    },
+    {
+      "pick": 46,
+      "player": "Amari Williams",
+      "draftedBy": "ORL",
+      "openingNightTeam": "BOS"
+    },
+    {
+      "pick": 50,
+      "player": "Kobe Sanders",
+      "draftedBy": "NYK",
+      "openingNightTeam": "LAC"
+    },
+    {
+      "pick": 51,
+      "player": "Mohamed Diawara",
+      "draftedBy": "LAC",
+      "openingNightTeam": "NYK"
+    },
+    {
+      "pick": 52,
+      "player": "Alex Toohey",
+      "draftedBy": "PHO",
+      "openingNightTeam": "GSW"
+    },
+    {
+      "pick": 55,
+      "player": "Lachlan Olbrich",
+      "draftedBy": "LAL",
+      "openingNightTeam": "CHI"
+    },
+    {
+      "pick": 56,
+      "player": "Will Richard",
+      "draftedBy": "MEM",
+      "openingNightTeam": "GSW"
+    },
+    {
+      "pick": 57,
+      "player": "Max Shulga",
+      "draftedBy": "ORL",
+      "openingNightTeam": "BOS"
+    },
+    {
+      "pick": 59,
+      "player": "Jahmai Mashack",
+      "draftedBy": "HOU",
+      "openingNightTeam": "MEM"
+    }
+  ]
+}
