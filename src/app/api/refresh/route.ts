@@ -3,7 +3,8 @@ import { refreshYears } from "@/lib/bref";
 import { getMeta, readPlayers, updateMetaYears, writePlayers } from "@/lib/data-store";
 
 export const dynamic = "force-dynamic";
-export const maxDuration = 300;
+/** Vercel hobby/pro cap serverless maxDuration at 60s (enterprise higher). */
+export const maxDuration = 60;
 
 type Body = {
   years?: number[];
