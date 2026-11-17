@@ -117,7 +117,7 @@ export async function fetchDraftYear(year: number): Promise<BrefDraftRow[]> {
   return parseDraftHtml(html, year);
 }
 
-function clauseOf(row: Pick<BrefDraftRow, "ptsPg" | "trbPg" | "astPg">): number | null {
+function clausOf(row: Pick<BrefDraftRow, "ptsPg" | "trbPg" | "astPg">): number | null {
   if (row.ptsPg == null || row.trbPg == null || row.astPg == null) return null;
   return Math.round((row.ptsPg + row.trbPg + 1.5 * row.astPg) * 100) / 100;
 }
@@ -152,7 +152,7 @@ function toPlayer(row: BrefDraftRow, prior?: Player): Player {
     vorp: row.vorp,
     // Preserve subjective RN Value; rookies / new players stay null.
     rnValue: prior?.rnValue ?? null,
-    clause: clauseOf(row),
+    claus: clausOf(row),
     pickRange,
     pickRangeLabel: pickRangeLabel(row.pick),
   };

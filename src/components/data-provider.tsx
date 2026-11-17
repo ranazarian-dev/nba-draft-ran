@@ -19,6 +19,12 @@ import {
 
 type RefreshOptions = { year?: number; years?: number[]; all?: boolean };
 
+export type AnalysisSpan = {
+  yearFrom: number;
+  yearTo: number;
+  rounds: number[];
+};
+
 type DataContextValue = {
   players: RatedPlayer[];
   basePlayers: Player[];
@@ -28,11 +34,15 @@ type DataContextValue = {
   loading: boolean;
   refreshing: boolean;
   lastRefreshNote: string | null;
+  analysisSpan: AnalysisSpan;
+  setAnalysisSpan: (next: AnalysisSpan) => void;
   setRn: (id: string, value: number | null) => void;
   resetRatings: () => void;
   replacePlayers: (players: Player[]) => void;
   refreshFromBref: (opts: RefreshOptions) => Promise<void>;
 };
+
+const SPAN_KEY = "nba-draft-analysis-span-v1";
 
 const DataContext = createContext<DataContextValue | null>(null);
 
@@ -45,15 +55,50 @@ export function DataProvider({
   meta: Meta;
   children: React.ReactNode;
 }) {
+  const minYear = Math.min(...meta.years);
+  const maxYear = Math.max(...meta.years);
   const [basePlayers, setBasePlayers] = useState<Player[]>(initialPlayers);
   const [overrides, setOverrides] = useState<RnOverrides>({});
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [lastRefreshNote, setLastRefreshNote] = useState<string | null>(null);
+  const [analysisSpan, setAnalysisSpanState] = useState<AnalysisSpan>({
+    yearFrom: minYear,
+    yearTo: maxYear,
+    rounds: [1, 2],
+  });
 
   useEffect(() => {
     setOverrides(loadOverrides());
+    try {
+      const raw = window.localStorage.getItem(SPAN_KEY);
+      if (raw) {
+        const parsed = JSON.parse(raw) as AnalysisSpan;
+        if (
+          typeof parsed.yearFrom === "number" &&
+          typeof parsed.yearTo === "number" &&
+          Array.isArray(parsed.rounds)
+        ) {
+          setAnalysisSpanState({
+            yearFrom: Math.max(minYear, Math.min(maxYear, parsed.yearFrom)),
+            yearTo: Math.max(minYear, Math.min(maxYear, parsed.yearTo)),
+            rounds: parsed.rounds.length ? parsed.rounds : [1, 2],
+          });
+        }
+      }
+    } catch {
+      // ignore
+    }
     setLoading(false);
+  }, [minYear, maxYear]);
+
+  const setAnalysisSpan = useCallback((next: AnalysisSpan) => {
+    setAnalysisSpanState(next);
+    try {
+      window.localStorage.setItem(SPAN_KEY, JSON.stringify(next));
+    } catch {
+      // ignore
+    }
   }, []);
 
   const setRn = useCallback((id: string, value: number | null) => {
@@ -121,6 +166,8 @@ export function DataProvider({
     loading,
     refreshing,
     lastRefreshNote,
+    analysisSpan,
+    setAnalysisSpan,
     setRn,
     resetRatings,
     replacePlayers,

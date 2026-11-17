@@ -62,8 +62,8 @@ function summarize(key: string, label: string, list: RatedPlayer[]): HitRateRow 
     .filter((v): v is number => v != null);
   const ws = list.map((p) => p.ws).filter((v): v is number => v != null);
   const vorp = list.map((p) => p.vorp).filter((v): v is number => v != null);
-  const clause = list
-    .map((p) => p.clause)
+  const claus = list
+    .map((p) => p.claus)
     .filter((v): v is number => v != null);
 
   const rates: Record<string, number | null> = {};
@@ -80,7 +80,7 @@ function summarize(key: string, label: string, list: RatedPlayer[]): HitRateRow 
     medianRn: median(ratedVals),
     meanWs: mean(ws),
     meanVorp: mean(vorp),
-    meanClause: mean(clause),
+    meanClaus: mean(claus),
     rates,
   };
 }

@@ -24,7 +24,7 @@ export type Player = {
   bpm: number | null;
   vorp: number | null;
   rnValue: number | null;
-  clause: number | null;
+  claus: number | null;
   pickRange: number;
   pickRangeLabel: string;
 };
@@ -51,7 +51,7 @@ export type HitRateRow = {
   medianRn: number | null;
   meanWs: number | null;
   meanVorp: number | null;
-  meanClause: number | null;
+  meanClaus: number | null;
   rates: Record<string, number | null>;
 };
 

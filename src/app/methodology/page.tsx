@@ -72,11 +72,11 @@ export default function MethodologyPage() {
 
       <section className="space-y-2">
         <h2 className="font-[family-name:var(--font-display)] text-2xl text-[var(--ink)]">
-          Clause Metric
+          Claus Metric
         </h2>
         <p>
-          Objective companion score: per-game PTS + REB + 1.5×AST. Useful as a
-          secondary lens beside RN, WS, and VORP.
+          Objective companion score named for Claus: per-game PTS + REB +
+          1.5×AST. Useful as a secondary lens beside RN, WS, and VORP.
         </p>
       </section>
 

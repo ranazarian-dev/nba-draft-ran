@@ -24,7 +24,7 @@ export default function DataPage() {
         </h2>
         <ul className="mt-2 list-disc space-y-1 pl-5">
           <li>Games, minutes, counting stats, shooting, WS, WS/48, BPM, VORP</li>
-          <li>Clause Metric recomputed as PTS + REB + 1.5×AST (per game)</li>
+          <li>Claus Metric recomputed as PTS + REB + 1.5×AST (per game)</li>
           <li>New draft years can be pulled in (RN starts blank)</li>
         </ul>
         <h2 className="mt-4 font-[family-name:var(--font-display)] text-xl text-[var(--ink)]">

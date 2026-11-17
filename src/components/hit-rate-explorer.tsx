@@ -23,22 +23,24 @@ import { fmt, pct } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
 type Mode = "range" | "pick";
-type Metric = "hit" | "meanRn" | "ws" | "vorp" | "clause";
+type Metric = "hit" | "meanRn" | "ws" | "vorp" | "claus";
 
 export function HitRateExplorer() {
-  const { players, meta } = useData();
+  const { players, meta, analysisSpan, setAnalysisSpan } = useData();
   const years = meta.years;
   const minYear = Math.min(...years);
   const maxYear = Math.max(...years);
-  const [filters, setFilters] = useState<FilterState>({
-    yearFrom: minYear,
-    yearTo: maxYear,
-    rounds: [1, 2],
-    search: "",
-  });
+  const [search, setSearch] = useState("");
   const [mode, setMode] = useState<Mode>("range");
   const [metric, setMetric] = useState<Metric>("hit");
   const [thresholdKey, setThresholdKey] = useState<string>("gt4");
+
+  const filters: FilterState = {
+    yearFrom: analysisSpan.yearFrom,
+    yearTo: analysisSpan.yearTo,
+    rounds: analysisSpan.rounds,
+    search,
+  };
 
   const filtered = useMemo(
     () =>
@@ -48,11 +50,12 @@ export function HitRateExplorer() {
         rounds: filters.rounds,
         search: filters.search || undefined,
       }),
-    [players, filters]
+    [players, filters.yearFrom, filters.yearTo, filters.rounds, filters.search]
   );
 
   const rows = useMemo(
-    () => (mode === "range" ? hitRatesByRange(filtered) : hitRatesByPick(filtered)),
+    () =>
+      mode === "range" ? hitRatesByRange(filtered) : hitRatesByPick(filtered),
     [filtered, mode]
   );
 
@@ -64,7 +67,7 @@ export function HitRateExplorer() {
         meanRn: r.meanRn,
         ws: r.meanWs,
         vorp: r.meanVorp,
-        clause: r.meanClause,
+        claus: r.meanClaus,
         n: r.rated,
       })),
     [rows, thresholdKey]
@@ -82,7 +85,7 @@ export function HitRateExplorer() {
           ? "ws"
           : metric === "vorp"
             ? "vorp"
-            : "clause";
+            : "claus";
 
   const yLabel =
     metric === "hit"
@@ -93,7 +96,7 @@ export function HitRateExplorer() {
           ? "Mean WS"
           : metric === "vorp"
             ? "Mean VORP"
-            : "Mean Clause";
+            : "Mean Claus";
 
   return (
     <div className="space-y-5">
@@ -101,8 +104,18 @@ export function HitRateExplorer() {
         minYear={minYear}
         maxYear={maxYear}
         value={filters}
-        onChange={setFilters}
+        onChange={(next) => {
+          setAnalysisSpan({
+            yearFrom: next.yearFrom,
+            yearTo: next.yearTo,
+            rounds: next.rounds,
+          });
+          setSearch(next.search);
+        }}
       />
+      <p className="text-xs text-[var(--muted)]">
+        Year span here is shared with player pages (same-pick comparisons).
+      </p>
 
       <div className="flex flex-wrap gap-2">
         <Button
@@ -126,7 +139,7 @@ export function HitRateExplorer() {
             ["meanRn", "Mean RN"],
             ["ws", "WS"],
             ["vorp", "VORP"],
-            ["clause", "Clause"],
+            ["claus", "Claus"],
           ] as const
         ).map(([k, label]) => (
           <Button
@@ -166,7 +179,10 @@ export function HitRateExplorer() {
         </div>
         <div className="h-72 w-full sm:h-96">
           <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={chartData} margin={{ left: 8, right: 8, top: 8, bottom: 8 }}>
+            <BarChart
+              data={chartData}
+              margin={{ left: 8, right: 8, top: 8, bottom: 8 }}
+            >
               <CartesianGrid stroke="var(--line)" vertical={false} />
               <XAxis
                 dataKey="label"
@@ -211,7 +227,9 @@ export function HitRateExplorer() {
         <table className="min-w-full text-left text-sm">
           <thead className="bg-[var(--panel)] text-xs uppercase tracking-wide text-[var(--muted)]">
             <tr>
-              <th className="px-3 py-2">{mode === "range" ? "Range" : "Pick"}</th>
+              <th className="px-3 py-2">
+                {mode === "range" ? "Range" : "Pick"}
+              </th>
               <th className="px-3 py-2">N</th>
               <th className="px-3 py-2">Mean RN</th>
               <th className="px-3 py-2">Med RN</th>
@@ -222,7 +240,7 @@ export function HitRateExplorer() {
               ))}
               <th className="px-3 py-2">WS</th>
               <th className="px-3 py-2">VORP</th>
-              <th className="px-3 py-2">Clause</th>
+              <th className="px-3 py-2">Claus</th>
             </tr>
           </thead>
           <tbody>
@@ -239,7 +257,7 @@ export function HitRateExplorer() {
                 ))}
                 <td className="px-3 py-2">{fmt(r.meanWs, 1)}</td>
                 <td className="px-3 py-2">{fmt(r.meanVorp, 1)}</td>
-                <td className="px-3 py-2">{fmt(r.meanClause, 1)}</td>
+                <td className="px-3 py-2">{fmt(r.meanClaus, 1)}</td>
               </tr>
             ))}
           </tbody>

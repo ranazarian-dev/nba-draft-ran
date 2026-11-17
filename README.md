@@ -4,7 +4,7 @@ Personal (shareable) app for measuring **how valuable an NBA draft pick or pick 
 
 ## What’s included
 
-- **Pick Value explorer** — hit rates by pick or 5-pick range (useful / starter / All-Star / All-NBA / HoF track), with WS, VORP, and Clause toggles
+- **Pick Value explorer** — hit rates by pick or 5-pick range (useful / starter / All-Star / All-NBA / HoF track), with WS, VORP, and Claus toggles
 - **Team report cards** — average draft value by franchise over a year span
 - **Editable RN ratings** — inline edits stored in the browser (`localStorage`)
 - **One-click BRef refresh** — `/data` pulls fresh draft tables from Basketball-Reference and merges them without wiping ratings or opening-night trade assignments
@@ -48,7 +48,7 @@ When the filesystem is writable (local / this cloud VM), refreshed players are w
 - Seeded from the DraftX workbook (drafts **2008–2024**, two rounds)
 - **Trade rule:** draft night through opening night → credit the acquiring team
 - **RN Value:** subjective 0–10; rookies unrated; young careers are guesstimates
-- **Clause Metric:** PTS + REB + 1.5×AST (per game)
+- **Claus Metric:** PTS + REB + 1.5×AST (per game)
 
 ## Vercel / private hosting
 

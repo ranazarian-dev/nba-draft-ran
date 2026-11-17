@@ -13,7 +13,7 @@ export default function HomePage() {
         <p className="mt-3 text-[var(--ink-soft)]">
           Hit rates use your RN Value scale: useful (&gt;3), starter (&gt;4),
           All-Star (&gt;6), All-NBA (&gt;7), Hall of Fame track (&gt;8). Toggle WS,
-          VORP, or Clause for objective secondary views.
+          VORP, or Claus for objective secondary views.
         </p>
       </section>
       <HitRateExplorer />
