@@ -1,14 +1,14 @@
-# Draft Value — NBA Draft Analysis
+# Wolves Report — Draft Value Analysis
 
-Personal (shareable) app for measuring **how valuable an NBA draft pick or pick range is**, based on subjective **RN Value** ratings plus Basketball-Reference career stats.
+Minnesota Timberwolves draft-value tool for measuring **how valuable an NBA draft pick or pick range is**, based on subjective **RN Value** ratings plus Basketball-Reference career stats.
 
 ## What’s included
 
-- **Pick Value explorer** — hit rates by pick or 5-pick range (useful / starter / All-Star / All-NBA / HoF track), with WS, VORP, and Claus toggles
+- **Home / Methodology** — Wolves branding plus the full measurement methodology
+- **Pick Value explorer** (`/pick-value`) — hit rates by pick or 5-pick range (useful / starter / All-Star / All-NBA / HoF track), with WS, VORP, and Claus toggles
 - **Team report cards** — average draft value by franchise over a year span
 - **Editable RN ratings** — inline edits stored in the browser (`localStorage`)
 - **One-click BRef refresh** — `/data` pulls fresh draft tables from Basketball-Reference and merges them without wiping ratings or opening-night trade assignments
-- **Methodology** — rating scale, trade window, and continuity notes
 
 ## Run locally
 

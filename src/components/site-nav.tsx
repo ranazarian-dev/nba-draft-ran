@@ -5,11 +5,11 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 const LINKS = [
-  { href: "/", label: "Pick Value" },
+  { href: "/", label: "Home" },
+  { href: "/pick-value", label: "Pick Value" },
   { href: "/teams", label: "Teams" },
   { href: "/players", label: "Players & Ratings" },
   { href: "/data", label: "Update Data" },
-  { href: "/methodology", label: "Methodology" },
 ];
 
 export function SiteNav() {
@@ -19,10 +19,10 @@ export function SiteNav() {
       <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-4 sm:flex-row sm:items-end sm:justify-between">
         <Link href="/" className="group">
           <div className="font-[family-name:var(--font-display)] text-3xl tracking-tight text-[var(--ink)] sm:text-4xl">
-            Draft Value
+            Wolves Report
           </div>
           <div className="text-xs uppercase tracking-[0.22em] text-[var(--muted)]">
-            NBA pick outcomes · 2008–present
+            Draft Value Analysis · 2008–present
           </div>
         </Link>
         <nav className="flex flex-wrap gap-1">

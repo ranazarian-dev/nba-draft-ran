@@ -18,9 +18,9 @@ const body = Source_Sans_3({
 });
 
 export const metadata: Metadata = {
-  title: "Draft Value · NBA Draft Analysis",
+  title: "Wolves Report · Draft Value Analysis",
   description:
-    "Explore NBA draft pick value and team drafting using subjective RN ratings plus Basketball-Reference stats.",
+    "Minnesota Timberwolves Draft Value Analysis — pick hit rates, team report cards, and editable RN ratings.",
 };
 
 export default function RootLayout({
