@@ -42,7 +42,7 @@ export function PlayersTable() {
     search: "",
   });
   const [editedOnly, setEditedOnly] = useState(false);
-  const [sortKey, setSortKey] = useState<SortKey>("year");
+  const [sortKey, setSortKey] = useState<SortKey>("effectiveRn");
   const [sortDir, setSortDir] = useState<SortDir>("desc");
 
   function toggleSort(key: SortKey) {
