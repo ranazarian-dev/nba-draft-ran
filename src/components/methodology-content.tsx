@@ -69,10 +69,10 @@ export function MethodologyContent() {
           Current rookies are left unrated until there is enough signal.
         </p>
         <p>
-          Manual RN edits are saved to a shared server store (not just one
-          browser), so phones, tablets, and desktops stay in sync. The first
-          visit from a device that still has old browser-only edits will upload
-          those into the shared store.
+          Manual RN edits are saved to a shared store so phones, tablets, and
+          desktops stay in sync. Anyone using the site can change RN ratings.
+          The first visit from a browser that still has older local-only edits
+          will upload those into the shared store.
         </p>
       </section>
 
