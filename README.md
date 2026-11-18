@@ -7,7 +7,7 @@ Minnesota Timberwolves draft-value tool for measuring **how valuable an NBA draf
 - **Home / Methodology** — Wolves branding plus the full measurement methodology
 - **Pick Value explorer** (`/pick-value`) — hit rates by pick or 5-pick range (useful / starter / All-Star / All-NBA / HoF track), with WS, VORP, and Claus toggles
 - **Team report cards** — average draft value by franchise over a year span
-- **Editable RN ratings** — inline edits stored in the browser (`localStorage`)
+- **Editable RN ratings** — shared across devices via `/api/ratings` (GitHub-backed on Vercel)
 - **One-click BRef refresh** — `/data` pulls fresh draft tables from Basketball-Reference and merges them without wiping ratings or opening-night trade assignments
 
 ## Run locally
@@ -50,6 +50,22 @@ When the filesystem is writable (local / this cloud VM), refreshed players are w
 - **RN Value:** subjective 0–10; rookies unrated; young careers are guesstimates
 - **Claus Metric:** PTS + REB + 1.5×AST (per game)
 
+## Shared RN ratings (all devices)
+
+Manual RN edits save to `src/data/rn-overrides.json` through `/api/ratings`.
+
+**Locally:** the API writes that file on disk (commit it when you want it in git).
+
+**On Vercel:** set these in Project → Settings → Environment Variables, then redeploy:
+
+| Variable | Purpose |
+| --- | --- |
+| `RATINGS_GITHUB_TOKEN` | GitHub token with **Contents: Read and Write** on this repo (required for cross-device sync) |
+| `RATINGS_GITHUB_REPO` | Optional; default `ranazarian-dev/nba-draft-ran` |
+| `RATINGS_WRITE_KEY` | Optional PIN; if set, the Players page asks for it before saving |
+
+After the first successful save from the browser that still has your old local edits, those values upload into the shared store and appear on every device.
+
 ## Vercel / private hosting
 
-This is a standard Next.js app. For a private family site, deploy to Vercel and restrict access (Vercel Deployment Protection, or Cursor private publish). Rating edits currently live in each browser; shared multi-device rating sync would need a small database later.
+Standard Next.js app. For a private family site, use Vercel Deployment Protection (or Cursor private publish).

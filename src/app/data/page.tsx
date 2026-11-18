@@ -31,9 +31,12 @@ export default function DataPage() {
           What is preserved
         </h2>
         <ul className="mt-2 list-disc space-y-1 pl-5">
-          <li>RN Value (your ratings)</li>
+          <li>RN Value (shared server ratings + Excel seed values)</li>
           <li>Opening-night team credit and &quot;traded from&quot; notes</li>
-          <li>Browser rating edits in localStorage</li>
+          <li>
+            Manual RN edits sync via <code>/api/ratings</code> (GitHub-backed on
+            Vercel when <code>RATINGS_GITHUB_TOKEN</code> is set)
+          </li>
         </ul>
       </section>
     </div>

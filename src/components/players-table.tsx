@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import { ArrowDown, ArrowUp, ArrowUpDown } from "lucide-react";
 import { useData } from "@/components/data-provider";
+import { RatingsSyncBar } from "@/components/ratings-sync-bar";
 import { YearFilters, type FilterState } from "@/components/year-filters";
 import { filterPlayers } from "@/lib/analytics";
 import { fmt } from "@/lib/utils";
@@ -106,10 +107,12 @@ export function PlayersTable() {
 
   return (
     <div className="space-y-5">
+      <RatingsSyncBar />
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <p className="max-w-2xl text-sm text-[var(--ink-soft)]">
-          Edit RN Value inline. Click a player name for career / yearly stats and
-          same-pick comparisons. Sort any column except Notes.
+          Edit RN Value inline — changes save to the shared store for every
+          device. Click a player name for career / yearly stats and same-pick
+          comparisons.
         </p>
         <div className="flex flex-wrap gap-2">
           <Button

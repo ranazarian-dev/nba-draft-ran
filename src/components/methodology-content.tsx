@@ -68,6 +68,12 @@ export function MethodologyContent() {
           Young / incomplete careers are guesstimates based partly on potential.
           Current rookies are left unrated until there is enough signal.
         </p>
+        <p>
+          Manual RN edits are saved to a shared server store (not just one
+          browser), so phones, tablets, and desktops stay in sync. The first
+          visit from a device that still has old browser-only edits will upload
+          those into the shared store.
+        </p>
       </section>
 
       <section className="space-y-2">
