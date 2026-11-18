@@ -60,7 +60,7 @@ Manual RN edits save to `src/data/rn-overrides.json` through `/api/ratings`.
 
 | Variable | Purpose |
 | --- | --- |
-| `RATINGS_GITHUB_TOKEN` | GitHub token with **Contents: Read and Write** on this repo (required for cross-device sync) |
+| `RATINGS_GITHUB_TOKEN` or `RATINGS_GH_TOKEN` | GitHub token with **Contents: Read and Write** on this repo (required for cross-device sync). Use `RATINGS_GH_TOKEN` as a **Config** var if editing the Secret is blocked by Vercel 2FA. |
 | `RATINGS_GITHUB_REPO` | Optional; default `ranazarian-dev/nba-draft-ran` |
 | `RATINGS_WRITE_KEY` | Optional PIN; if set, the Players page asks for it before saving |
 

@@ -8,7 +8,11 @@ const OVERRIDES_PATH = path.join(DATA_DIR, "rn-overrides.json");
 const OVERRIDES_REPO_PATH = "src/data/rn-overrides.json";
 
 function githubConfig() {
-  const token = process.env.RATINGS_GITHUB_TOKEN?.trim();
+  // Prefer RATINGS_GITHUB_TOKEN; also accept RATINGS_GH_TOKEN so a Config
+  // var can be added without editing an existing Secret (avoids Vercel 2FA).
+  const token =
+    process.env.RATINGS_GITHUB_TOKEN?.trim() ||
+    process.env.RATINGS_GH_TOKEN?.trim();
   const repo =
     process.env.RATINGS_GITHUB_REPO?.trim() || "ranazarian-dev/nba-draft-ran";
   const branch = process.env.RATINGS_GITHUB_BRANCH?.trim() || "main";
