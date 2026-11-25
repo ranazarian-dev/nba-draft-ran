@@ -7,7 +7,7 @@ import { useData } from "@/components/data-provider";
 import { RatingsSyncBar } from "@/components/ratings-sync-bar";
 import { YearFilters, type FilterState } from "@/components/year-filters";
 import { filterPlayers } from "@/lib/analytics";
-import { fmt } from "@/lib/utils";
+import { cn, fmt } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import type { RatedPlayer } from "@/lib/types";
@@ -18,6 +18,8 @@ type SortKey =
   | "team"
   | "player"
   | "effectiveRn"
+  | "consistencyRn"
+  | "consistencyDelta"
   | "ws"
   | "vorp"
   | "claus";
@@ -32,6 +34,13 @@ function cmp(a: unknown, b: unknown): number {
   return String(a).localeCompare(String(b), undefined, { sensitivity: "base" });
 }
 
+function deltaClass(delta: number | null): string {
+  if (delta == null) return "text-[var(--muted)]";
+  if (Math.abs(delta) >= 3) return "text-amber-800 font-semibold";
+  if (Math.abs(delta) >= 2) return "text-amber-700";
+  return "text-[var(--ink-soft)]";
+}
+
 export function PlayersTable() {
   const { players, meta, dirtyCount, setRn, resetRatings, overrides } = useData();
   const minYear = Math.min(...meta.years);
@@ -43,6 +52,7 @@ export function PlayersTable() {
     search: "",
   });
   const [editedOnly, setEditedOnly] = useState(false);
+  const [gapOnly, setGapOnly] = useState(false);
   const [sortKey, setSortKey] = useState<SortKey>("effectiveRn");
   const [sortDir, setSortDir] = useState<SortDir>("desc");
 
@@ -63,30 +73,37 @@ export function PlayersTable() {
       search: filters.search || undefined,
     });
     if (editedOnly) list = list.filter((p) => p.id in overrides);
+    if (gapOnly) {
+      list = list.filter(
+        (p) => p.consistencyDelta != null && Math.abs(p.consistencyDelta) >= 2
+      );
+    }
     const sorted = [...list].sort((a, b) => {
       const av = a[sortKey as keyof RatedPlayer];
       const bv = b[sortKey as keyof RatedPlayer];
       const base = cmp(av, bv);
       if (base !== 0) return sortDir === "asc" ? base : -base;
-      // stable tie-breakers
       if (a.year !== b.year) return b.year - a.year;
       return a.pick - b.pick;
     });
     return sorted;
-  }, [players, filters, editedOnly, overrides, sortKey, sortDir]);
+  }, [players, filters, editedOnly, gapOnly, overrides, sortKey, sortDir]);
 
   function SortHeader({
     label,
     column,
+    title,
   }: {
     label: string;
     column: SortKey;
+    title?: string;
   }) {
     const active = sortKey === column;
     return (
       <th className="px-3 py-2">
         <button
           type="button"
+          title={title}
           onClick={() => toggleSort(column)}
           className="inline-flex items-center gap-1 uppercase tracking-wide hover:text-[var(--ink)]"
         >
@@ -110,9 +127,10 @@ export function PlayersTable() {
       <RatingsSyncBar />
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <p className="max-w-2xl text-sm text-[var(--ink-soft)]">
-          Edit RN Value inline — changes save to the shared store for every
-          device. Click a player name for career / yearly stats and same-pick
-          comparisons.
+          <strong className="font-semibold text-[var(--ink)]">Consist.</strong>{" "}
+          is an injury-aware model score (rate-first, soft longevity) calibrated
+          to your RN scale — what the rating “should” be for internal
+          consistency. Δ = your RN − Consist. (amber when |Δ| ≥ 2).
         </p>
         <div className="flex flex-wrap gap-2">
           <Button
@@ -121,6 +139,13 @@ export function PlayersTable() {
             onClick={() => setEditedOnly((v) => !v)}
           >
             Edited only ({dirtyCount})
+          </Button>
+          <Button
+            size="sm"
+            variant={gapOnly ? "default" : "outline"}
+            onClick={() => setGapOnly((v) => !v)}
+          >
+            |Δ| ≥ 2
           </Button>
           <Button
             size="sm"
@@ -149,6 +174,16 @@ export function PlayersTable() {
               <SortHeader label="Team" column="team" />
               <SortHeader label="Player" column="player" />
               <SortHeader label="RN" column="effectiveRn" />
+              <SortHeader
+                label="Consist."
+                column="consistencyRn"
+                title="Injury-aware consistency model (0–10)"
+              />
+              <SortHeader
+                label="Δ"
+                column="consistencyDelta"
+                title="Your RN minus consistency score"
+              />
               <SortHeader label="WS" column="ws" />
               <SortHeader label="VORP" column="vorp" />
               <SortHeader label="Claus" column="claus" />
@@ -158,10 +193,16 @@ export function PlayersTable() {
           <tbody>
             {filtered.map((p) => {
               const edited = p.id in overrides;
+              const bigGap =
+                p.consistencyDelta != null && Math.abs(p.consistencyDelta) >= 2;
               return (
                 <tr
                   key={p.id}
-                  className={`border-t border-[var(--line)] ${edited ? "bg-[var(--accent-soft)]/40" : ""}`}
+                  className={cn(
+                    "border-t border-[var(--line)]",
+                    edited && "bg-[var(--accent-soft)]/40",
+                    !edited && bigGap && "bg-amber-50/80"
+                  )}
                 >
                   <td className="px-3 py-1.5">{p.year}</td>
                   <td className="px-3 py-1.5">{p.pick}</td>
@@ -195,6 +236,33 @@ export function PlayersTable() {
                         else setRn(p.id, Number(raw));
                       }}
                     />
+                  </td>
+                  <td className="px-3 py-1.5">
+                    {p.consistencyRn == null ? (
+                      <span className="text-[var(--muted)]">—</span>
+                    ) : (
+                      <span title={`Rounded band ${p.consistencyRnRounded}`}>
+                        {fmt(p.consistencyRn, 1)}
+                        {p.consistencyInjuryCredit ? (
+                          <span
+                            className="ml-1 text-[10px] uppercase tracking-wide text-[var(--muted)]"
+                            title="Soft injury credit applied"
+                          >
+                            inj
+                          </span>
+                        ) : null}
+                      </span>
+                    )}
+                  </td>
+                  <td
+                    className={cn(
+                      "px-3 py-1.5 tabular-nums",
+                      deltaClass(p.consistencyDelta)
+                    )}
+                  >
+                    {p.consistencyDelta == null
+                      ? "—"
+                      : `${p.consistencyDelta > 0 ? "+" : ""}${fmt(p.consistencyDelta, 1)}`}
                   </td>
                   <td className="px-3 py-1.5">{fmt(p.ws, 1)}</td>
                   <td className="px-3 py-1.5">{fmt(p.vorp, 1)}</td>

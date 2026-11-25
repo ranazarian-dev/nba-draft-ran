@@ -1,4 +1,5 @@
 import { mean, median } from "@/lib/utils";
+import { consistencyBreakdown } from "@/lib/consistency-rn";
 import type { HitRateRow, RatedPlayer, TeamSummary } from "@/lib/types";
 
 export const HIT_THRESHOLDS = [
@@ -19,11 +20,18 @@ export function withEffectiveRn(
   players: RatedPlayer[],
   overrides: Record<string, number | null>
 ): RatedPlayer[] {
-  return players.map((p) => ({
-    ...p,
-    effectiveRn:
-      p.id in overrides ? overrides[p.id]! : p.rnValue,
-  }));
+  return players.map((p) => {
+    const effectiveRn = p.id in overrides ? overrides[p.id]! : p.rnValue;
+    const c = consistencyBreakdown(p, effectiveRn);
+    return {
+      ...p,
+      effectiveRn,
+      consistencyRn: c ? Math.round(c.consistencyRn * 10) / 10 : null,
+      consistencyRnRounded: c?.consistencyRnRounded ?? null,
+      consistencyDelta: c?.delta ?? null,
+      consistencyInjuryCredit: c?.injuryCredit ?? false,
+    };
+  });
 }
 
 function rateAbove(rated: number[], threshold: number): number | null {

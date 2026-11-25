@@ -78,6 +78,21 @@ export function MethodologyContent() {
 
       <section className="space-y-2">
         <h3 className="font-[family-name:var(--font-display)] text-2xl text-[var(--ink)]">
+          Consistency column (Consist.)
+        </h3>
+        <p>
+          Players &amp; Ratings also shows an injury-aware model score
+          calibrated to this RN scale. It is rate-first (WS/48, BPM, Claus, PPG)
+          with soft longevity credit and only a light weight on raw career Win
+          Shares — so teammate-inflated compilers stay muted and truncated peaks
+          keep more value. Δ = your RN − Consist. Use it as a second opinion,
+          not a replacement for judgment (defense/IQ and availability still sit
+          outside the box score).
+        </p>
+      </section>
+
+      <section className="space-y-2">
+        <h3 className="font-[family-name:var(--font-display)] text-2xl text-[var(--ink)]">
           Claus Metric
         </h3>
         <p>

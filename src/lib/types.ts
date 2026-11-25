@@ -40,7 +40,17 @@ export type Meta = {
   continuityNotes: string[];
 };
 
-export type RatedPlayer = Player & { effectiveRn: number | null };
+export type RatedPlayer = Player & {
+  effectiveRn: number | null;
+  /** Injury-aware consistency model (0–10 continuous) */
+  consistencyRn: number | null;
+  /** Nearest whole-number consistency band */
+  consistencyRnRounded: number | null;
+  /** Your RN − consistencyRn (positive = you rate higher) */
+  consistencyDelta: number | null;
+  /** Model applied soft injury credit */
+  consistencyInjuryCredit: boolean;
+};
 
 export type HitRateRow = {
   key: string;

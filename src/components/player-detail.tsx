@@ -160,6 +160,24 @@ export function PlayerDetail({ id }: { id: string }) {
         </p>
         <div className="mt-3 flex flex-wrap gap-3 text-sm">
           <StatChip label="RN" value={fmt(local?.effectiveRn ?? player.rnValue, 0)} />
+          <StatChip
+            label="Consist."
+            value={
+              local?.consistencyRn == null
+                ? "—"
+                : `${fmt(local.consistencyRn, 1)}${
+                    local.consistencyInjuryCredit ? "*" : ""
+                  }`
+            }
+          />
+          <StatChip
+            label="Δ RN−Consist."
+            value={
+              local?.consistencyDelta == null
+                ? "—"
+                : `${local.consistencyDelta > 0 ? "+" : ""}${fmt(local.consistencyDelta, 1)}`
+            }
+          />
           <StatChip label="Career PPG" value={fmt(player.ptsPg, 1)} />
           <StatChip label="RPG" value={fmt(player.trbPg, 1)} />
           <StatChip label="APG" value={fmt(player.astPg, 1)} />
@@ -167,6 +185,16 @@ export function PlayerDetail({ id }: { id: string }) {
           <StatChip label="VORP" value={fmt(player.vorp, 1)} />
           <StatChip label="Claus" value={fmt(player.claus, 1)} />
         </div>
+        {local?.consistencyRn != null && (
+          <p className="mt-2 max-w-2xl text-xs text-[var(--muted)]">
+            Consist. is the injury-aware consistency model (rate-first, soft
+            longevity) calibrated to your RN scale
+            {local.consistencyInjuryCredit
+              ? "; * soft injury credit applied"
+              : ""}
+            .
+          </p>
+        )}
         {data?.profile?.brefUrl && (
           <a
             href={data.profile.brefUrl}

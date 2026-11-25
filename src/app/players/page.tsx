@@ -12,7 +12,10 @@ export default function PlayersPage() {
         </h1>
         <p className="mt-3 text-[var(--ink-soft)]">
           Young / incomplete careers are intentional guesstimates. Leave rookies
-          blank until you&apos;re ready to rate them.
+          blank until you&apos;re ready to rate them. Use{" "}
+          <strong className="font-semibold text-[var(--ink)]">Consist.</strong>{" "}
+          as a second opinion for internal consistency with your anti-WS /
+          injury-credit philosophy.
         </p>
       </section>
       <PlayersTable />
