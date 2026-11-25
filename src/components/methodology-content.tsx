@@ -85,9 +85,19 @@ export function MethodologyContent() {
           calibrated to this RN scale. It is rate-first (WS/48, BPM, Claus, PPG)
           with soft longevity credit and only a light weight on raw career Win
           Shares — so teammate-inflated compilers stay muted and truncated peaks
-          keep more value. Δ = your RN − Consist. Use it as a second opinion,
-          not a replacement for judgment (defense/IQ and availability still sit
-          outside the box score).
+          keep more value.
+        </p>
+        <p>
+          v2 also folds in seeded{" "}
+          <strong className="font-semibold text-[var(--ink)]">defense</strong>{" "}
+          (0–10 impact ladder for known two-way players) and{" "}
+          <strong className="font-semibold text-[var(--ink)]">
+            Finals / championship
+          </strong>{" "}
+          history. Titles give a ceiling bump; Finals losses a smaller one.
+          Hard rule: Consist. cannot reach 10 without a championship. Tags on
+          the column: <em>inj</em> = injury credit, <em>D</em> = defense ≥ 7,{" "}
+          <em>ring</em> = champion. Δ = your RN − Consist.
         </p>
       </section>
 

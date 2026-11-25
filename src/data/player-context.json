@@ -1,0 +1,628 @@
+{
+  "_meta": {
+    "description": "Championship / Finals / defensive-impact seeds for consistency RN v2",
+    "defenseScale": "0=neutral/unknown, 3=solid, 5=plus, 7=plus-plus, 9=elite anchor, 10=generational D peak",
+    "championshipRule": "Consistency RN cannot reach 10 without championships>=1",
+    "updatedThrough": "2026 NBA Finals (Knicks)"
+  },
+  "players": {
+    "2008-10": {
+      "championships": 1,
+      "defense": 7,
+      "finalsAppearances": 1,
+      "player": "Brook Lopez"
+    },
+    "2008-18": {
+      "championships": 3,
+      "defense": 4,
+      "finalsAppearances": 3,
+      "player": "JaVale McGee"
+    },
+    "2008-24": {
+      "championships": 1,
+      "defense": 6,
+      "finalsAppearances": 2,
+      "player": "Serge Ibaka"
+    },
+    "2008-4": {
+      "championships": 0,
+      "defense": 3,
+      "finalsAppearances": 1,
+      "player": "Russell Westbrook"
+    },
+    "2009-17": {
+      "championships": 2,
+      "defense": 8,
+      "finalsAppearances": 2,
+      "player": "Jrue Holiday"
+    },
+    "2009-3": {
+      "championships": 0,
+      "defense": 2,
+      "finalsAppearances": 1,
+      "player": "James Harden"
+    },
+    "2009-46": {
+      "championships": 3,
+      "defense": 6,
+      "finalsAppearances": 4,
+      "player": "Danny Green"
+    },
+    "2009-7": {
+      "championships": 4,
+      "defense": 4,
+      "finalsAppearances": 6,
+      "player": "Stephen Curry"
+    },
+    "2010-10": {
+      "championships": 0,
+      "defense": 6,
+      "finalsAppearances": 0,
+      "player": "Paul George"
+    },
+    "2010-35": {
+      "championships": 1,
+      "defense": 3,
+      "finalsAppearances": 1,
+      "player": "Nemanja Bjelica"
+    },
+    "2011-1": {
+      "championships": 1,
+      "defense": 3,
+      "finalsAppearances": 4,
+      "player": "Kyrie Irving"
+    },
+    "2011-11": {
+      "championships": 4,
+      "defense": 6,
+      "finalsAppearances": 6,
+      "player": "Klay Thompson"
+    },
+    "2011-13": {
+      "championships": 1,
+      "defense": 3,
+      "finalsAppearances": 1,
+      "player": "Markieff Morris"
+    },
+    "2011-15": {
+      "championships": 2,
+      "defense": 9,
+      "finalsAppearances": 2,
+      "player": "Kawhi Leonard"
+    },
+    "2011-30": {
+      "championships": 0,
+      "defense": 7,
+      "finalsAppearances": 3,
+      "player": "Jimmy Butler"
+    },
+    "2012-1": {
+      "championships": 1,
+      "defense": 9,
+      "finalsAppearances": 1,
+      "player": "Anthony Davis"
+    },
+    "2012-35": {
+      "championships": 4,
+      "defense": 10,
+      "finalsAppearances": 6,
+      "player": "Draymond Green"
+    },
+    "2012-39": {
+      "championships": 1,
+      "defense": 4,
+      "finalsAppearances": 1,
+      "player": "Khris Middleton"
+    },
+    "2012-7": {
+      "championships": 1,
+      "defense": 4,
+      "finalsAppearances": 2,
+      "player": "Harrison Barnes"
+    },
+    "2013-12": {
+      "championships": 0,
+      "defense": 5,
+      "finalsAppearances": 0,
+      "player": "Steven Adams"
+    },
+    "2013-15": {
+      "championships": 1,
+      "defense": 8,
+      "finalsAppearances": 1,
+      "player": "Giannis Antetokounmpo"
+    },
+    "2013-26": {
+      "championships": 0,
+      "defense": 8,
+      "finalsAppearances": 1,
+      "player": "Andre Roberson"
+    },
+    "2013-27": {
+      "championships": 0,
+      "defense": 9,
+      "finalsAppearances": 0,
+      "player": "Rudy Gobert"
+    },
+    "2013-3": {
+      "championships": 1,
+      "defense": 4,
+      "finalsAppearances": 1,
+      "player": "Otto Porter Jr."
+    },
+    "2013-8": {
+      "championships": 2,
+      "defense": 5,
+      "finalsAppearances": 2,
+      "player": "Kentavious Caldwell-Pope"
+    },
+    "2014-1": {
+      "championships": 1,
+      "defense": 5,
+      "finalsAppearances": 1,
+      "player": "Andrew Wiggins"
+    },
+    "2014-4": {
+      "championships": 1,
+      "defense": 6,
+      "finalsAppearances": 1,
+      "player": "Aaron Gordon"
+    },
+    "2014-41": {
+      "championships": 1,
+      "defense": 5,
+      "finalsAppearances": 1,
+      "player": "Nikola Jokić"
+    },
+    "2014-6": {
+      "championships": 0,
+      "defense": 8,
+      "finalsAppearances": 1,
+      "player": "Marcus Smart"
+    },
+    "2015-1": {
+      "championships": 1,
+      "defense": 3,
+      "finalsAppearances": 1,
+      "player": "Karl-Anthony Towns"
+    },
+    "2015-11": {
+      "championships": 0,
+      "defense": 6,
+      "finalsAppearances": 1,
+      "player": "Myles Turner"
+    },
+    "2015-13": {
+      "championships": 0,
+      "defense": 3,
+      "finalsAppearances": 1,
+      "player": "Devin Booker"
+    },
+    "2015-30": {
+      "championships": 4,
+      "defense": 6,
+      "finalsAppearances": 5,
+      "player": "Kevon Looney"
+    },
+    "2015-4": {
+      "championships": 1,
+      "defense": 5,
+      "finalsAppearances": 1,
+      "player": "Kristaps Porziņģis"
+    },
+    "2015-41": {
+      "championships": 1,
+      "defense": 3,
+      "finalsAppearances": 1,
+      "player": "Pat Connaughton"
+    },
+    "2015-46": {
+      "championships": 1,
+      "defense": 4,
+      "finalsAppearances": 1,
+      "player": "Norman Powell"
+    },
+    "2016-27": {
+      "championships": 1,
+      "defense": 5,
+      "finalsAppearances": 2,
+      "player": "Pascal Siakam"
+    },
+    "2016-3": {
+      "championships": 1,
+      "defense": 6,
+      "finalsAppearances": 2,
+      "player": "Jaylen Brown"
+    },
+    "2016-7": {
+      "championships": 1,
+      "defense": 4,
+      "finalsAppearances": 1,
+      "player": "Jamal Murray"
+    },
+    "2017-14": {
+      "championships": 0,
+      "defense": 8,
+      "finalsAppearances": 2,
+      "player": "Bam Adebayo"
+    },
+    "2017-23": {
+      "championships": 2,
+      "defense": 8,
+      "finalsAppearances": 2,
+      "player": "OG Anunoby"
+    },
+    "2017-29": {
+      "championships": 1,
+      "defense": 7,
+      "finalsAppearances": 2,
+      "player": "Derrick White"
+    },
+    "2017-3": {
+      "championships": 1,
+      "defense": 5,
+      "finalsAppearances": 2,
+      "player": "Jayson Tatum"
+    },
+    "2017-30": {
+      "championships": 1,
+      "defense": 5,
+      "finalsAppearances": 1,
+      "player": "Josh Hart"
+    },
+    "2017-45": {
+      "championships": 0,
+      "defense": 6,
+      "finalsAppearances": 0,
+      "player": "Dillon Brooks"
+    },
+    "2018-1": {
+      "championships": 0,
+      "defense": 4,
+      "finalsAppearances": 1,
+      "player": "Deandre Ayton"
+    },
+    "2018-10": {
+      "championships": 1,
+      "defense": 7,
+      "finalsAppearances": 2,
+      "player": "Mikal Bridges"
+    },
+    "2018-11": {
+      "championships": 1,
+      "defense": 6,
+      "finalsAppearances": 1,
+      "player": "Shai Gilgeous-Alexander"
+    },
+    "2018-14": {
+      "championships": 1,
+      "defense": 3,
+      "finalsAppearances": 1,
+      "player": "Michael Porter Jr."
+    },
+    "2018-17": {
+      "championships": 2,
+      "defense": 5,
+      "finalsAppearances": 2,
+      "player": "Donte DiVincenzo"
+    },
+    "2018-20": {
+      "championships": 0,
+      "defense": 6,
+      "finalsAppearances": 0,
+      "player": "Josh Okogie"
+    },
+    "2018-27": {
+      "championships": 0,
+      "defense": 8,
+      "finalsAppearances": 1,
+      "player": "Robert Williams"
+    },
+    "2018-3": {
+      "championships": 0,
+      "defense": 3,
+      "finalsAppearances": 1,
+      "player": "Luka Dončić"
+    },
+    "2018-4": {
+      "championships": 0,
+      "defense": 8,
+      "finalsAppearances": 0,
+      "player": "Jaren Jackson Jr."
+    },
+    "2018-41": {
+      "championships": 0,
+      "defense": 6,
+      "finalsAppearances": 0,
+      "player": "Jarred Vanderbilt"
+    },
+    "2018-42": {
+      "championships": 1,
+      "defense": 5,
+      "finalsAppearances": 1,
+      "player": "Bruce Brown"
+    },
+    "2019-13": {
+      "championships": 0,
+      "defense": 2,
+      "finalsAppearances": 2,
+      "player": "Tyler Herro"
+    },
+    "2019-20": {
+      "championships": 0,
+      "defense": 7,
+      "finalsAppearances": 0,
+      "player": "Matisse Thybulle"
+    },
+    "2019-28": {
+      "championships": 1,
+      "defense": 2,
+      "finalsAppearances": 1,
+      "player": "Jordan Poole"
+    },
+    "2020-12": {
+      "championships": 0,
+      "defense": 3,
+      "finalsAppearances": 1,
+      "player": "Tyrese Haliburton"
+    },
+    "2020-14": {
+      "championships": 0,
+      "defense": 5,
+      "finalsAppearances": 1,
+      "player": "Aaron Nesmith"
+    },
+    "2020-26": {
+      "championships": 1,
+      "defense": 2,
+      "finalsAppearances": 1,
+      "player": "Payton Pritchard"
+    },
+    "2020-28": {
+      "championships": 0,
+      "defense": 8,
+      "finalsAppearances": 0,
+      "player": "Jaden McDaniels"
+    },
+    "2020-49": {
+      "championships": 1,
+      "defense": 3,
+      "finalsAppearances": 1,
+      "player": "Isaiah Joe"
+    },
+    "2021-3": {
+      "championships": 0,
+      "defense": 8,
+      "finalsAppearances": 0,
+      "player": "Evan Mobley"
+    },
+    "2021-4": {
+      "championships": 0,
+      "defense": 6,
+      "finalsAppearances": 0,
+      "player": "Scottie Barnes"
+    },
+    "2021-55": {
+      "championships": 1,
+      "defense": 4,
+      "finalsAppearances": 1,
+      "player": "Aaron Wiggins"
+    },
+    "2022-12": {
+      "championships": 1,
+      "defense": 6,
+      "finalsAppearances": 1,
+      "player": "Jalen Williams"
+    },
+    "2022-2": {
+      "championships": 1,
+      "defense": 7,
+      "finalsAppearances": 1,
+      "player": "Chet Holmgren"
+    },
+    "2022-31": {
+      "championships": 0,
+      "defense": 5,
+      "finalsAppearances": 1,
+      "player": "Andrew Nembhard"
+    },
+    "2022-6": {
+      "championships": 0,
+      "defense": 2,
+      "finalsAppearances": 1,
+      "player": "Bennedict Mathurin"
+    },
+    "2022-8": {
+      "championships": 0,
+      "defense": 8,
+      "finalsAppearances": 0,
+      "player": "Dyson Daniels"
+    },
+    "2023-1": {
+      "championships": 0,
+      "defense": 9,
+      "finalsAppearances": 1,
+      "player": "Victor Wembanyama"
+    },
+    "2023-10": {
+      "championships": 1,
+      "defense": 6,
+      "finalsAppearances": 1,
+      "player": "Cason Wallace"
+    },
+    "2023-4": {
+      "championships": 0,
+      "defense": 7,
+      "finalsAppearances": 0,
+      "player": "Amen Thompson"
+    },
+    "2023-5": {
+      "championships": 0,
+      "defense": 7,
+      "finalsAppearances": 0,
+      "player": "Ausar Thompson"
+    },
+    "2024-4": {
+      "championships": 0,
+      "defense": 5,
+      "finalsAppearances": 1,
+      "player": "Stephon Castle"
+    },
+    "2018-33": {
+      "player": "Jalen Brunson",
+      "championships": 1,
+      "finalsAppearances": 1,
+      "defense": 4
+    },
+    "2021-36": {
+      "player": "Miles McBride",
+      "championships": 1,
+      "finalsAppearances": 1,
+      "defense": 5
+    },
+    "2017-43": {
+      "player": "Isaiah Hartenstein",
+      "championships": 1,
+      "finalsAppearances": 1,
+      "defense": 5
+    },
+    "2022-34": {
+      "player": "Jaylin Williams",
+      "championships": 1,
+      "finalsAppearances": 1,
+      "defense": 4
+    },
+    "2024-38": {
+      "player": "Ajay Mitchell",
+      "championships": 1,
+      "finalsAppearances": 1,
+      "defense": 3
+    },
+    "2022-11": {
+      "player": "Ousmane Dieng",
+      "championships": 1,
+      "finalsAppearances": 1,
+      "defense": 3
+    },
+    "2017-6": {
+      "player": "Jonathan Isaac",
+      "championships": 0,
+      "finalsAppearances": 0,
+      "defense": 7
+    },
+    "2023-12": {
+      "player": "Dereck Lively II",
+      "championships": 0,
+      "finalsAppearances": 1,
+      "defense": 6
+    },
+    "2019-12": {
+      "player": "P.J. Washington",
+      "championships": 0,
+      "finalsAppearances": 1,
+      "defense": 4
+    },
+    "2019-22": {
+      "player": "Grant Williams",
+      "championships": 0,
+      "finalsAppearances": 1,
+      "defense": 4
+    },
+    "2020-35": {
+      "player": "Xavier Tillman Sr.",
+      "championships": 1,
+      "finalsAppearances": 1,
+      "defense": 5
+    },
+    "2019-17": {
+      "player": "Nickeil Alexander-Walker",
+      "championships": 0,
+      "finalsAppearances": 0,
+      "defense": 5
+    },
+    "2020-1": {
+      "player": "Anthony Edwards",
+      "championships": 0,
+      "finalsAppearances": 0,
+      "defense": 4
+    },
+    "2021-5": {
+      "player": "Jalen Suggs",
+      "championships": 0,
+      "finalsAppearances": 0,
+      "defense": 6
+    },
+    "2019-18": {
+      "player": "Goga Bitadze",
+      "championships": 0,
+      "finalsAppearances": 1,
+      "defense": 5
+    },
+    "2020-8": {
+      "player": "Obi Toppin",
+      "championships": 0,
+      "finalsAppearances": 1,
+      "defense": 3
+    },
+    "2024-52": {
+      "player": "Quinten Post",
+      "championships": 1,
+      "finalsAppearances": 1,
+      "defense": 2
+    },
+    "2021-14": {
+      "player": "Moses Moody",
+      "championships": 1,
+      "finalsAppearances": 1,
+      "defense": 3
+    },
+    "2021-7": {
+      "player": "Jonathan Kuminga",
+      "championships": 1,
+      "finalsAppearances": 1,
+      "defense": 3
+    },
+    "2012-34": {
+      "player": "Jae Crowder",
+      "championships": 0,
+      "finalsAppearances": 1,
+      "defense": 5
+    },
+    "2022-21": {
+      "player": "Christian Braun",
+      "championships": 1,
+      "finalsAppearances": 1,
+      "defense": 5
+    },
+    "2022-30": {
+      "player": "Peyton Watson",
+      "championships": 1,
+      "finalsAppearances": 1,
+      "defense": 5
+    },
+    "2020-22": {
+      "player": "Zeke Nnaji",
+      "championships": 1,
+      "finalsAppearances": 1,
+      "defense": 3
+    },
+    "2023-29": {
+      "player": "Julian Strawther",
+      "championships": 1,
+      "finalsAppearances": 1,
+      "defense": 2
+    },
+    "2011-24": {
+      "player": "Reggie Jackson",
+      "championships": 1,
+      "finalsAppearances": 1,
+      "defense": 2
+    },
+    "2017-42": {
+      "player": "Thomas Bryant",
+      "championships": 1,
+      "finalsAppearances": 1,
+      "defense": 2
+    }
+  }
+}

@@ -50,6 +50,12 @@ export type RatedPlayer = Player & {
   consistencyDelta: number | null;
   /** Model applied soft injury credit */
   consistencyInjuryCredit: boolean;
+  /** Seeded defensive impact 0–10 (0 = unsown / neutral) */
+  consistencyDefense: number;
+  /** Seeded NBA titles */
+  consistencyChampionships: number;
+  /** Seeded Finals appearances (wins + losses) */
+  consistencyFinals: number;
 };
 
 export type HitRateRow = {

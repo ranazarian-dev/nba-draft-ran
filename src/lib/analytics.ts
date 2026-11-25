@@ -30,6 +30,9 @@ export function withEffectiveRn(
       consistencyRnRounded: c?.consistencyRnRounded ?? null,
       consistencyDelta: c?.delta ?? null,
       consistencyInjuryCredit: c?.injuryCredit ?? false,
+      consistencyDefense: c?.defense ?? 0,
+      consistencyChampionships: c?.championships ?? 0,
+      consistencyFinals: c?.finalsAppearances ?? 0,
     };
   });
 }

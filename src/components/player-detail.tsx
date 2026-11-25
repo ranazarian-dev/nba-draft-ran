@@ -187,12 +187,18 @@ export function PlayerDetail({ id }: { id: string }) {
         </div>
         {local?.consistencyRn != null && (
           <p className="mt-2 max-w-2xl text-xs text-[var(--muted)]">
-            Consist. is the injury-aware consistency model (rate-first, soft
-            longevity) calibrated to your RN scale
-            {local.consistencyInjuryCredit
-              ? "; * soft injury credit applied"
+            Consist. v2: rate-first + soft longevity, plus seeded defense
+            {local.consistencyDefense
+              ? ` (${local.consistencyDefense}/10)`
               : ""}
-            .
+            {local.consistencyChampionships
+              ? `, ${local.consistencyChampionships} title${local.consistencyChampionships > 1 ? "s" : ""}`
+              : ""}
+            {local.consistencyFinals
+              ? `, ${local.consistencyFinals} Finals`
+              : ""}
+            {local.consistencyInjuryCredit ? "; injury credit applied" : ""}.
+            No 10 without a championship.
           </p>
         )}
         {data?.profile?.brefUrl && (

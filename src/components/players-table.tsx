@@ -241,14 +241,39 @@ export function PlayersTable() {
                     {p.consistencyRn == null ? (
                       <span className="text-[var(--muted)]">—</span>
                     ) : (
-                      <span title={`Rounded band ${p.consistencyRnRounded}`}>
+                      <span
+                        title={[
+                          `Rounded band ${p.consistencyRnRounded}`,
+                          p.consistencyDefense
+                            ? `Defense seed ${p.consistencyDefense}/10`
+                            : null,
+                          p.consistencyChampionships
+                            ? `Titles ${p.consistencyChampionships}`
+                            : null,
+                          p.consistencyFinals
+                            ? `Finals ${p.consistencyFinals}`
+                            : null,
+                          p.consistencyInjuryCredit
+                            ? "Soft injury credit"
+                            : null,
+                        ]
+                          .filter(Boolean)
+                          .join(" · ")}
+                      >
                         {fmt(p.consistencyRn, 1)}
                         {p.consistencyInjuryCredit ? (
-                          <span
-                            className="ml-1 text-[10px] uppercase tracking-wide text-[var(--muted)]"
-                            title="Soft injury credit applied"
-                          >
+                          <span className="ml-1 text-[10px] uppercase tracking-wide text-[var(--muted)]">
                             inj
+                          </span>
+                        ) : null}
+                        {p.consistencyDefense >= 7 ? (
+                          <span className="ml-1 text-[10px] uppercase tracking-wide text-[var(--muted)]">
+                            D
+                          </span>
+                        ) : null}
+                        {p.consistencyChampionships > 0 ? (
+                          <span className="ml-1 text-[10px] uppercase tracking-wide text-[var(--muted)]">
+                            ring
                           </span>
                         ) : null}
                       </span>
