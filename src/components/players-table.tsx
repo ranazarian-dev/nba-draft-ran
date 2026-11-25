@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useLayoutEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowDown, ArrowUp, ArrowUpDown } from "lucide-react";
 import { useData } from "@/components/data-provider";
@@ -65,20 +65,24 @@ export function PlayersTable() {
     }
   }
 
-  const filtered = useMemo(() => {
-    let list = filterPlayers(players, {
+  function applyFilters(list: RatedPlayer[]): RatedPlayer[] {
+    let next = filterPlayers(list, {
       yearFrom: filters.yearFrom,
       yearTo: filters.yearTo,
       rounds: filters.rounds,
       search: filters.search || undefined,
     });
-    if (editedOnly) list = list.filter((p) => p.id in overrides);
+    if (editedOnly) next = next.filter((p) => p.id in overrides);
     if (gapOnly) {
-      list = list.filter(
+      next = next.filter(
         (p) => p.consistencyDelta != null && Math.abs(p.consistencyDelta) >= 2
       );
     }
-    const sorted = [...list].sort((a, b) => {
+    return next;
+  }
+
+  function sortPlayers(list: RatedPlayer[]): RatedPlayer[] {
+    return [...list].sort((a, b) => {
       const av = a[sortKey as keyof RatedPlayer];
       const bv = b[sortKey as keyof RatedPlayer];
       const base = cmp(av, bv);
@@ -86,8 +90,51 @@ export function PlayersTable() {
       if (a.year !== b.year) return b.year - a.year;
       return a.pick - b.pick;
     });
-    return sorted;
-  }, [players, filters, editedOnly, gapOnly, overrides, sortKey, sortDir]);
+  }
+
+  // Membership of the filtered set (not values). RN edits that don't add/remove
+  // rows leave this key unchanged, so we don't re-sort under the user's cursor.
+  const memberKey = useMemo(() => {
+    return applyFilters(players)
+      .map((p) => p.id)
+      .sort()
+      .join("|");
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- intentional: track filter membership only
+  }, [players, filters, editedOnly, gapOnly, overrides]);
+
+  const playersRef = useRef(players);
+  playersRef.current = players;
+
+  const [displayOrder, setDisplayOrder] = useState<string[]>([]);
+
+  useLayoutEffect(() => {
+    const sorted = sortPlayers(applyFilters(playersRef.current));
+    setDisplayOrder(sorted.map((p) => p.id));
+    // Re-sort only when the user changes sort/filters, on reload, or when the
+    // filtered ID set changes — not when a manual RN value alone changes.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sortKey, sortDir, filters, editedOnly, gapOnly, memberKey]);
+
+  const byId = useMemo(() => {
+    const map = new Map<string, RatedPlayer>();
+    for (const p of players) map.set(p.id, p);
+    return map;
+  }, [players]);
+
+  const filtered = useMemo(() => {
+    const rows = displayOrder
+      .map((id) => byId.get(id))
+      .filter((p): p is RatedPlayer => Boolean(p));
+    // If filters newly include IDs not yet in the frozen order, append them
+    // (stable) until the next explicit re-sort.
+    if (rows.length === memberKey.split("|").filter(Boolean).length) return rows;
+    const seen = new Set(rows.map((p) => p.id));
+    for (const p of applyFilters(players)) {
+      if (!seen.has(p.id)) rows.push(p);
+    }
+    return rows;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [displayOrder, byId, memberKey, players, filters, editedOnly, gapOnly, overrides]);
 
   function SortHeader({
     label,
